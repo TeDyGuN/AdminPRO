@@ -28,7 +28,7 @@ export class ProfilesComponent implements OnInit {
       this.usuario.email = usuario.email;
     }
     console.log(usuario);
-    this._usuarioService.actualizarUsuario(usuario)
+    this._usuarioService.actualizarUsuario(this.usuario)
           .subscribe( );
   }
   seleccionImagen( archivo: File ) {

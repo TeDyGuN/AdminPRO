@@ -1,14 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModalUploadService } from '../components/modal-upload/modal-upload.service';
+import { HospitalService } from './hospital/hospital.service';
+
 import {
   SettingsService,
   SidebarService,
   SharedService,
   UsuarioService,
   LoginGuardGuard,
-  SubirArchivoService
-} from './service.index';
-import { HttpClientModule } from '@angular/common/http';
+  SubirArchivoService,
+  MedicoService
+ } from './service.index';
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +26,10 @@ import { HttpClientModule } from '@angular/common/http';
     SharedService,
     UsuarioService,
     LoginGuardGuard,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService,
+    HospitalService,
+    MedicoService
   ],
   declarations: []
 })

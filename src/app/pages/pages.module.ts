@@ -21,6 +21,11 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { CommonModule } from '@angular/common';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +38,12 @@ import { CommonModule } from '@angular/common';
         AccountSettingsComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfilesComponent
+        ProfilesComponent,
+        UsuariosComponent,
+        ModalUploadComponent,
+        HospitalesComponent,
+        MedicosComponent,
+        MedicoComponent
     ],
     imports: [
         CommonModule,
@@ -46,7 +56,7 @@ import { CommonModule } from '@angular/common';
     exports: [
         DashboardComponent,
         ProgressComponent,
-        GraficaComponent,
+        GraficaComponent
     ]
 })
 export class PagesModule { }
