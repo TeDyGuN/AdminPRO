@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from '../../config/config';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
@@ -20,6 +21,21 @@ export class UsuarioService {
     public _subirArchivoService: SubirArchivoService
   ) {
     this.cargarStorage();
+  }
+  renuevaToken() {
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+    return this.http.get(url)
+        .map( (resp: any) => {
+          this.token = resp.token;
+          localStorage.setItem('token', this.token);
+          return true;
+        })
+        .catch( err => {
+          this.router.navigate(['/login']);
+          Swal('No se puedo renovar token', 'No fue posible renovar Token', 'error');
+          return Observable.throw( err );
+        });
   }
   estaLogueado() {
     return ( this.token.length > 5) ? true : false;
